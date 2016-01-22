@@ -25,10 +25,18 @@ THE SOFTWARE.
 #include <string>
 #include <sstream>
 #include <unordered_map>
+
+#ifdef __unix__
+#define __nixbuild__
+#endif
+#ifdef __APPLE__
+#define __nixbuild__
+#endif
+
 #ifdef _WIN32
 #include <winsock2.h>
 #endif
-#ifdef __unix__
+#ifdef __nixbuild__
 #include <sys/socket.h>
 #include <netinet/in.h>
 #include <netdb.h>
